@@ -1,0 +1,32 @@
+<% include ./partials/header %>
+<div class="container">
+  <div class="jumbotron jumbotron-fluid">
+    <h3>Subject: <%=subject.name%></h3>
+  </div>
+    <table class="table table-hover table-dark table-sm">
+  <thead>
+    <tr>
+      <th scope="col"><h4>S.no</h4></th>
+      <th scope="col"><h4>Title</h4></th>
+      <th scope="col"><h4>Author</h4></th>
+      <th scope="col"><h4>Date</h4></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbode>
+      <% var i=1;%>
+      <%subject.pdfs.forEach(function(pdf){%>
+      <tr>
+          <th scope="row"><%=i%></th>
+          <td><%=pdf.title%></td>
+          <td><%=pdf.username%></td>
+          <td><%=pdf.date.toDateString()%></td>
+          <td><a class="btn btn-primary btn-sm active" aria-pressed="true" href="<%=pdf.link%>" role="button">click to download</a></td>
+          <%i=i+1%>
+      </tr>
+    <% });%>
+  </tbode>
+  </table>
+</div>
+<% include ./partials/footer %>
+
